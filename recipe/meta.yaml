@@ -12,8 +12,8 @@ source:
 build:
   noarch: python
   script:
-    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
-    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
+    #- cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
+    #- echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -29,7 +29,7 @@ requirements:
     - scipy >=1.4.1
     - semver >=2.13.0,<2.14.dev0
     - nlp-feature-extractors ==0.1.0
-    - responsibleai >=0.32.1
+    - responsibleai >=0.33.0
 
 test:
   imports:
