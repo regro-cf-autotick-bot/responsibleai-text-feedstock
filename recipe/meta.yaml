@@ -12,8 +12,8 @@ source:
 build:
   noarch: python
   script:
-    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt # [unix]
-    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt # [win]
+    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
+    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
