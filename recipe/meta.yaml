@@ -1,5 +1,5 @@
 {% set name = "responsibleai-text" %}
-{% set version = "0.2.4" %}
+{% set version = "0.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/responsibleai_text-{{ version }}.tar.gz
-  sha256: bdafb90de99ce713924185eda02b495bbc0cc4a74dbdd719a318b0813403128d
+  sha256: b714047b1437b01bf3c1a894e896f69e21cdbccfb0bb251cef6a58e537395653
 
 build:
   noarch: python
   script:
-   - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
-   - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
-   - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt # [unix]
+    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt # [win]
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
