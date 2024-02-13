@@ -1,5 +1,5 @@
 {% set name = "responsibleai-text" %}
-{% set version = "0.2.4" %}
+{% set version = "0.2.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/responsibleai_text-{{ version }}.tar.gz
-  sha256: bdafb90de99ce713924185eda02b495bbc0cc4a74dbdd719a318b0813403128d
+  sha256: d388e2a5f622bff0084d7d08b5d36a5f88bd8ed6ab6a77d388e5ecd6f3ba0f33
 
 build:
   noarch: python
   script:
-   - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
-   - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
-   - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - cp -R {{ RECIPE_DIR }}/requirements.txt {{ SRC_DIR }}/requirements.txt  # [unix]
+    - echo f | xcopy /f /y /S %RECIPE_DIR%\requirements.txt %SRC_DIR%\requirements.txt  # [win]
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
@@ -29,7 +29,7 @@ requirements:
     - scipy >=1.4.1
     - semver >=2.13.0,<2.14.dev0
     - nlp-feature-extractors ==0.1.0
-    - responsibleai >=0.32.1
+    - responsibleai >=0.34.1
 
 test:
   imports:
